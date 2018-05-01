@@ -1,0 +1,44 @@
+<div>
+    <a (click)="openPopup(0);" matTooltip = "Add Product!">Add Product</a>
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="color">
+      <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.color}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let group" (click)="$event.stopPropagation()">
+          <button mat-button (click)="deleteProduct(group.id)">
+              Delete
+          </button>
+      </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="update">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let group" (click)="$event.stopPropagation()">
+        <button mat-button (click)="openPopup(group.id)">
+            Edit
+        </button>
+    </mat-cell>
+</ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

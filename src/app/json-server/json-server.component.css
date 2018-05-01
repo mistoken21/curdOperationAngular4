@@ -1,0 +1,14 @@
+mat-header-cell{
+    font-size: 25px;
+    font-weight: bold;
+}
+a{
+    cursor: pointer;
+    color: white;
+    font-size: 22px;
+    padding: 10px;
+    background-color:rgb(218, 102, 8);
+    border-radius: 5px;
+    margin-top: 10px;
+
+}
